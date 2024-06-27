@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
 
+- base model for shape
+- added models for rectangle and circle
 
 ## [v0.0.1] - 2024-06-24
 
