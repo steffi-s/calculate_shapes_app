@@ -52,7 +52,7 @@ class ShapeDropdown extends StatefulWidget {
 class _ShapeDropdownState extends State<ShapeDropdown> {
   final TextEditingController _shapeController = TextEditingController();
 
-  ShapeLabel _selectedShape = ShapeLabel.rectangle;
+   ShapeLabel _selectedShape = ShapeLabel.rectangle;
 
   @override
   Widget build(BuildContext context) {
@@ -98,9 +98,10 @@ class ConfirmButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       child: const Text('Confirm Selection'),
-      onPressed: () => Navigator.of(context).pushReplacement<void, void>(
-        MaterialPageRoute<void>(
-            builder: (BuildContext context) => Calculation(shape: shape)),
+      onPressed: () => Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (BuildContext context) => Calculation(shape: shape),
+        ),
       ),
     );
   }
