@@ -10,12 +10,9 @@ class Circle extends Shape {
   double radius;
 
   Circle({
-    required int id,
-    required String name,
+    required super.name,
     required this.radius,
-  }) : super(
-    name: name,
-  );
+  });
 
   @override
   double calculateArea() {

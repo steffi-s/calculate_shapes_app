@@ -13,10 +13,10 @@ class Rectangle extends Shape {
   double sideB;
 
   Rectangle({
-    required String name,
+    required super.name,
     required this.sideA,
     required this.sideB,
-  }) : super(name: name);
+  });
 
   @override
   double calculateArea() {
