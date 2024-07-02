@@ -52,7 +52,7 @@ class ShapeDropdown extends StatefulWidget {
 class _ShapeDropdownState extends State<ShapeDropdown> {
   final TextEditingController _shapeController = TextEditingController();
 
-   ShapeLabel _selectedShape = ShapeLabel.rectangle;
+  ShapeLabel _selectedShape = ShapeLabel.rectangle;
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +66,7 @@ class _ShapeDropdownState extends State<ShapeDropdown> {
           onSelected: (label) {
             setState(() {
               _selectedShape = label!;
+              debugPrint(_selectedShape.name);
             });
           },
           dropdownMenuEntries: const [
@@ -76,7 +77,7 @@ class _ShapeDropdownState extends State<ShapeDropdown> {
         Padding(
             padding: const EdgeInsets.only(top: 16),
             child: ConfirmButton(
-              shape: _selectedShape,
+              shapeName: _selectedShape.name,
             )),
       ],
     );
@@ -90,19 +91,21 @@ class _ShapeDropdownState extends State<ShapeDropdown> {
 }
 
 class ConfirmButton extends StatelessWidget {
-  const ConfirmButton({required this.shape, super.key});
+  const ConfirmButton({required this.shapeName, super.key});
 
-  final ShapeLabel shape;
+  final String shapeName;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: const Text('Confirm Selection'),
-      onPressed: () => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (BuildContext context) => Calculation(shape: shape),
-        ),
-      ),
-    );
+        child: const Text('Confirm Selection'),
+        onPressed: () {
+          debugPrint('shapeName: $shapeName');
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (BuildContext context) => Calculation(shape: shapeName),
+            ),
+          );
+        });
   }
 }
