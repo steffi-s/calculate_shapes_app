@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - added methods to calculate the area and circumference of rectangles
 - added methods to calculate the area and circumference of circles
 - show form depending on the selected shape
+- add buttons to execute each calculation separately or at the same time
 
 ## [v0.0.2] - 2024-07-02
 

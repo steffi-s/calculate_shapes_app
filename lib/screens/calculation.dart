@@ -164,6 +164,23 @@ class _RectangleFormDisplayState extends State<RectangleFormDisplay> {
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: ElevatedButton(
+              onPressed: () {
+                var area = _calculateArea(
+                  double.parse(_sideAController.text),
+                  double.parse(_sideBController.text),
+                );
+                var circumference = _calculateCircumference(
+                  double.parse(_sideAController.text),
+                  double.parse(_sideBController.text),
+                );
+                debugPrint('Area: $area, Circumference: $circumference');
+              },
+              child: const Text('Calculate Both'),
+            ),
+          ),
         ],
       ),
     );
@@ -260,6 +277,21 @@ class _CircleFormDisplayState extends State<CircleFormDisplay> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: ElevatedButton(
+              onPressed: () {
+                var area = _calculateArea(
+                  double.parse(_radiusController.text),
+                );
+                var circumference = _calculateCircumference(
+                  double.parse(_radiusController.text),
+                );
+                debugPrint('Area: $area, Circumference: $circumference');
+              },
+              child: const Text('Calculate Both'),
             ),
           ),
         ],
