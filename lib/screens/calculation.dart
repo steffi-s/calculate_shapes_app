@@ -141,7 +141,9 @@ class _RectangleFormDisplayState extends State<RectangleFormDisplay> {
                         MaterialPageRoute(
                           builder: (BuildContext context) => Result(
                             shape: widget.name,
-                            results: [area],
+                            results: {
+                              'area': area,
+                            },
                           ),
                         ),
                       );
@@ -164,6 +166,16 @@ class _RectangleFormDisplayState extends State<RectangleFormDisplay> {
                         double.parse(_sideBController.text),
                       );
                       debugPrint('$circumference');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Result(
+                            shape: widget.name,
+                            results: {
+                              'circumference': circumference,
+                            },
+                          ),
+                        ),
+                      );
                     },
                     child: const Text(
                       'Calculate Circumference',
@@ -186,6 +198,17 @@ class _RectangleFormDisplayState extends State<RectangleFormDisplay> {
                   double.parse(_sideBController.text),
                 );
                 debugPrint('Area: $area, Circumference: $circumference');
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => Result(
+                      shape: widget.name,
+                      results: {
+                        'area': area,
+                        'circumference': circumference,
+                      },
+                    ),
+                  ),
+                );
               },
               child: const Text('Calculate Both'),
             ),

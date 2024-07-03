@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - results screen
+- widgets to display results properly
 
 ## [v0.0.3] - 2024-07-02
 
