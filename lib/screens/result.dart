@@ -29,22 +29,37 @@ List<double> readValues() {
         child: Column(
           children: [
             Center(
-              child: Text(
-                'Results for $shape',
-                // style: TextStyle(...),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                child: Text(
+                  'Results for "${shape.toUpperCase()}"',
+                   style: const TextStyle(
+                     color: Colors.teal,
+                     fontSize: 24,
+                     fontWeight: FontWeight.bold,
+                   ),
+                ),
               ),
             ),
-            ListView.builder(
-              itemCount: results.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return Row(
-                  children: [
-                    Text(readKeys()[index]),
-                    Text(readValues()[index].toStringAsFixed(2)),
-                  ],
-                );
-              },
+            Center(
+              child: ListView.builder(
+                itemCount: results.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: Text(
+                                readKeys()[index]),
+                        ),
+                        Text(readValues()[index].toStringAsFixed(2)),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

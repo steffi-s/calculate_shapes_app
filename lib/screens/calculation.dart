@@ -289,6 +289,16 @@ class _CircleFormDisplayState extends State<CircleFormDisplay> {
                       var area =
                           _calculateArea(double.parse(_radiusController.text));
                       debugPrint('Area: $area');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Result(
+                            shape: widget.name,
+                            results: {
+                              'area': area,
+                            },
+                          ),
+                        ),
+                      );
                     },
                     child: const Text('Calculate Area'),
                   ),
@@ -304,6 +314,16 @@ class _CircleFormDisplayState extends State<CircleFormDisplay> {
                       var circumference = _calculateCircumference(
                           double.parse(_radiusController.text));
                       debugPrint('Circumference: $circumference');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Result(
+                            shape: widget.name,
+                            results: {
+                              'circumference': circumference,
+                            },
+                          ),
+                        ),
+                      );
                     },
                     child: const Text('Calculate Circumference'),
                   ),
@@ -322,6 +342,17 @@ class _CircleFormDisplayState extends State<CircleFormDisplay> {
                   double.parse(_radiusController.text),
                 );
                 debugPrint('Area: $area, Circumference: $circumference');
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => Result(
+                      shape: widget.name,
+                      results: {
+                        'area': area,
+                        'circumference': circumference,
+                      },
+                    ),
+                  ),
+                );
               },
               child: const Text('Calculate Both'),
             ),
