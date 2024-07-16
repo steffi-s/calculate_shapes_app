@@ -1,5 +1,6 @@
 import 'package:calculate_shapes_app/models/circle.dart';
 import 'package:calculate_shapes_app/models/rectangle.dart';
+import 'package:calculate_shapes_app/screens/result.dart';
 import 'package:flutter/material.dart';
 
 class Calculation extends StatelessWidget {
@@ -136,6 +137,16 @@ class _RectangleFormDisplayState extends State<RectangleFormDisplay> {
                         double.parse(_sideBController.text),
                       );
                       debugPrint('$area');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Result(
+                            shape: widget.name,
+                            results: {
+                              'area': area,
+                            },
+                          ),
+                        ),
+                      );
                     },
                     child: const Text(
                       'Calculate Area',
@@ -155,6 +166,16 @@ class _RectangleFormDisplayState extends State<RectangleFormDisplay> {
                         double.parse(_sideBController.text),
                       );
                       debugPrint('$circumference');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Result(
+                            shape: widget.name,
+                            results: {
+                              'circumference': circumference,
+                            },
+                          ),
+                        ),
+                      );
                     },
                     child: const Text(
                       'Calculate Circumference',
@@ -177,6 +198,17 @@ class _RectangleFormDisplayState extends State<RectangleFormDisplay> {
                   double.parse(_sideBController.text),
                 );
                 debugPrint('Area: $area, Circumference: $circumference');
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => Result(
+                      shape: widget.name,
+                      results: {
+                        'area': area,
+                        'circumference': circumference,
+                      },
+                    ),
+                  ),
+                );
               },
               child: const Text('Calculate Both'),
             ),
@@ -257,6 +289,16 @@ class _CircleFormDisplayState extends State<CircleFormDisplay> {
                       var area =
                           _calculateArea(double.parse(_radiusController.text));
                       debugPrint('Area: $area');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Result(
+                            shape: widget.name,
+                            results: {
+                              'area': area,
+                            },
+                          ),
+                        ),
+                      );
                     },
                     child: const Text('Calculate Area'),
                   ),
@@ -272,6 +314,16 @@ class _CircleFormDisplayState extends State<CircleFormDisplay> {
                       var circumference = _calculateCircumference(
                           double.parse(_radiusController.text));
                       debugPrint('Circumference: $circumference');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Result(
+                            shape: widget.name,
+                            results: {
+                              'circumference': circumference,
+                            },
+                          ),
+                        ),
+                      );
                     },
                     child: const Text('Calculate Circumference'),
                   ),
@@ -290,6 +342,17 @@ class _CircleFormDisplayState extends State<CircleFormDisplay> {
                   double.parse(_radiusController.text),
                 );
                 debugPrint('Area: $area, Circumference: $circumference');
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => Result(
+                      shape: widget.name,
+                      results: {
+                        'area': area,
+                        'circumference': circumference,
+                      },
+                    ),
+                  ),
+                );
               },
               child: const Text('Calculate Both'),
             ),
