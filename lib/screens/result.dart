@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
 
+import 'greeting.dart';
+
 class Result extends StatelessWidget {
   const Result({required this.shape, required this.results, super.key});
 
   final String shape;
   final Map<String, dynamic> results;
 
-List<String> readKeys() {
-  List<String> keys = [];
-  for (var key in results.keys) {
-    keys.add(key);
+  List<String> readKeys() {
+    List<String> keys = [];
+    for (var key in results.keys) {
+      keys.add(key);
+    }
+    return keys;
   }
-  return keys;
-}
 
-List<double> readValues() {
-  List<double> values = [];
-  for (var value in results.values) {
-    values.add(value);
+  List<double> readValues() {
+    List<double> values = [];
+    for (var value in results.values) {
+      values.add(value);
+    }
+    return values;
   }
-  return values;
-}
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +35,11 @@ List<double> readValues() {
                 padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                 child: Text(
                   'Results for "${shape.toUpperCase()}"',
-                   style: const TextStyle(
-                     color: Colors.teal,
-                     fontSize: 24,
-                     fontWeight: FontWeight.bold,
-                   ),
+                  style: const TextStyle(
+                    color: Colors.teal,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -51,14 +53,36 @@ List<double> readValues() {
                     child: Row(
                       children: [
                         Expanded(
-                            child: Text(
-                                readKeys()[index]),
+                          child: Text(readKeys()[index]),
                         ),
                         Text(readValues()[index].toStringAsFixed(2)),
                       ],
                     ),
                   );
                 },
+              ),
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => const Greeting(
+                          greeting: 'Hello again!',
+                        ),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    'Back to start',
+                    style: TextStyle(
+                      color: Colors.blueGrey,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
