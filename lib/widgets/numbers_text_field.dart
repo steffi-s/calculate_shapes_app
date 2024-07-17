@@ -30,11 +30,6 @@ class _NumbersTextFieldState extends State<NumbersTextField> {
         signed: true,
         decimal: true,
       ),
-      onChanged: (value) {
-        setState(() {
-          widget.numberController.text = value;
-        });
-      },
     );
   }
 }
